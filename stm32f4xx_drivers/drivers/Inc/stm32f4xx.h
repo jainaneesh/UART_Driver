@@ -200,6 +200,13 @@ typedef struct
 #define SPI2							((SPI_RegDef_t*)SPI2_BASEADDR)
 #define SPI3							((SPI_RegDef_t*)SPI3_BASEADDR)
 
+#define UART1							((UART_Regdef_t*)USART1_BASEADDR)
+#define UART2							((UART_Regdef_t*)USART2_BASEADDR)
+#define UART3							((UART_Regdef_t*)USART3_BASEADDR)
+#define UART4							((UART_Regdef_t*)UART4_BASEADDR)
+#define UART5							((UART_Regdef_t*)UART5_BASEADDR)
+#define UART6							((UART_Regdef_t*)USART6_BASEADDR)
+
 #define RCC	 							((RCC_RegDef_t*)RCC_BASEADDR)
 #define EXTI 							((EXTI_RegDef_t*)EXTI_BASEADDR)
 #define SYSCFG							((SYSCFG_RegDef_t*)SYSCFG_BASEADDR)
@@ -225,6 +232,16 @@ typedef struct
 #define I2C3_PCLK_EN()					(RCC->APB1ENR |= (1 << 23))
 
 /*
+ * Clock Enable Macros for UART Peripherals
+ */
+#define UART1_PCLK_EN()					(RCC->APB2ENR |= (1 << 4))
+#define UART2_PCLK_EN()					(RCC->APB1ENR |= (1 << 17))
+#define UART3_PCLK_EN()					(RCC->APB1ENR |= (1 << 18))
+#define UART4_PCLK_EN()					(RCC->APB1ENR |= (1 << 18))
+#define UART5_PCLK_EN()					(RCC->APB1ENR |= (1 << 20))
+#define UART6_PCLK_EN()					(RCC->APB2ENR |= (1 << 5))
+
+/*
  * Clock Enable Macros for SPIx Peripherals
  */
 #define SPI1_PCLK_EN()   				(RCC->APB2ENR |= (1 << 12))
@@ -238,6 +255,16 @@ typedef struct
 #define SPI2_PCLK_DI()   				(RCC->APB1ENR &= ~(1 << 14))
 #define SPI3_PCLK_DI()   				(RCC->APB1ENR &= ~(1 << 15))
 #define SPI4_PCLK_DI()   				(RCC->APB2ENR &= ~(1 << 13))
+
+/*
+ * Clock Disable Mactos for UARTx Peripherals
+ */
+#define UART1_PCLK_DI()					(RCC->APB2ENR &= ~(1 << 4))
+#define UART2_PCLK_DI()					(RCC->APB1ENR &= ~(1 << 17))
+#define UART3_PCLK_DI()					(RCC->APB1ENR &= ~(1 << 18))
+#define UART4_PCLK_DI()					(RCC->APB1ENR &= ~(1 << 18))
+#define UART5_PCLK_DI()					(RCC->APB1ENR &= ~(1 << 20))
+#define UART6_PCLK_DI()					(RCC->APB2ENR &= ~(1 << 5))
 
 #define SYSCFG_PCLK_EN()   				(RCC->APB2ENR |= (1 << 14))
 
