@@ -24,6 +24,11 @@ typedef struct
 	UART_Config_t UART_Config;
 }UART_Handle_t;
 
+//Peripheral clock enable API/HAL
+void UARTPeripheralClockControl(uint32_t *pUARTx, uint8_t EnOrDi);
+
+
+
 
 
 
